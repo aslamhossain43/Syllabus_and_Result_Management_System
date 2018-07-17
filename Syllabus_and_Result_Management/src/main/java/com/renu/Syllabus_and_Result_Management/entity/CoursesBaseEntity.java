@@ -8,6 +8,8 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Version;
 
+
+
 @MappedSuperclass
 public abstract class CoursesBaseEntity<ID> {
 

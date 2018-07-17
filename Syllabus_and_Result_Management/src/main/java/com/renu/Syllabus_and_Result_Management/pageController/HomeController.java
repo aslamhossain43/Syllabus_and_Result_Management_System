@@ -1,4 +1,4 @@
-package com.renu.Syllabus_and_Result.pageController;
+package com.renu.Syllabus_and_Result_Management.pageController;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeController {
 
 	
-	@RequestMapping(value="/",method=RequestMethod.GET)
+	@RequestMapping(value="/home",method=RequestMethod.GET)
 	public String showHome() {
 		
 		return "home";

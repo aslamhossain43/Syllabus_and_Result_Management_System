@@ -1,7 +1,6 @@
 package com.renu.Syllabus_and_Result_Management.entity;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;

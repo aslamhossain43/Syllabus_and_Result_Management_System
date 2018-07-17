@@ -1,7 +1,5 @@
 package com.renu.Syllabus_and_Result_Management.dto;
 
-import javax.persistence.Column;
-
 import com.renu.Syllabus_and_Result_Management.entity.Faculty;
 
 public class FacultyDTO {
