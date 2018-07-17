@@ -1,11 +1,15 @@
 package com.renu.Syllabus_and_Result_Management.entity;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
-//@Entity
+@Entity
 public class Courses extends CoursesBaseEntity<Long> {
 
 	@Id
@@ -41,21 +45,25 @@ public class Courses extends CoursesBaseEntity<Long> {
 	private String course14;
 	@Column(name="course15",nullable=true,unique=true)
 	private String course15;
-	@Column(name="f_id",unique=true,nullable=false)
+	@OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="f_id",unique=true,nullable=false)
 	private Faculty faculty;
+	private Results result;
 	@Override
 	public Long getId() {
 		// TODO Auto-generated method stub
-		return null;
+		return id;
 	}
 	
 	public Courses() {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+	
 	public Courses(Long id, String course1, String course2, String course3, String course4, String course5,
 			String course6, String course7, String course8, String course9, String course10, String course11,
-			String course12, String course13, String course14, String course15, Faculty faculty) {
+			String course12, String course13, String course14, String course15, Faculty faculty, Results result) {
 		super();
 		this.id = id;
 		this.course1 = course1;
@@ -74,6 +82,7 @@ public class Courses extends CoursesBaseEntity<Long> {
 		this.course14 = course14;
 		this.course15 = course15;
 		this.faculty = faculty;
+		this.result = result;
 	}
 
 	public String getCourse1() {
@@ -204,6 +213,14 @@ public class Courses extends CoursesBaseEntity<Long> {
 		this.faculty = faculty;
 	}
 
+	public Results getResult() {
+		return result;
+	}
+
+	public void setResult(Results result) {
+		this.result = result;
+	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -214,9 +231,9 @@ public class Courses extends CoursesBaseEntity<Long> {
 				+ ", course4=" + course4 + ", course5=" + course5 + ", course6=" + course6 + ", course7=" + course7
 				+ ", course8=" + course8 + ", course9=" + course9 + ", course10=" + course10 + ", course11=" + course11
 				+ ", course12=" + course12 + ", course13=" + course13 + ", course14=" + course14 + ", course15="
-				+ course15 + ", faculty=" + faculty + "]";
+				+ course15 + "]";
 	}
-	
+
 	
 	
 	

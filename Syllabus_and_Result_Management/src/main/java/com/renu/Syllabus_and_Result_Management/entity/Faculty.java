@@ -1,11 +1,14 @@
 package com.renu.Syllabus_and_Result_Management.entity;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
-//@Entity
+@Entity
 public class Faculty extends FacultyBaseEntity<Long>{
    
 	@Id
@@ -21,6 +24,7 @@ public class Faculty extends FacultyBaseEntity<Long>{
 	private String semester;
 	@Column(name="total_credit",nullable=false)
 	private double total_credit;
+	@OneToOne(mappedBy="faculty",fetch=FetchType.LAZY)
 	private Faculty faculty;
 	
 	public Faculty() {
@@ -74,7 +78,7 @@ public class Faculty extends FacultyBaseEntity<Long>{
 	@Override
 	public Long getId() {
 		// TODO Auto-generated method stub
-		return null;
+		return id;
 	}
 
 
@@ -152,8 +156,12 @@ public class Faculty extends FacultyBaseEntity<Long>{
 	@Override
 	public String toString() {
 		return "Faculty [id=" + id + ", f_name=" + f_name + ", d_name=" + d_name + ", level=" + level + ", semester="
-				+ semester + ", total_credit=" + total_credit + ", faculty=" + faculty + "]";
+				+ semester + ", total_credit=" + total_credit + "]";
 	}
+
+
+
+
 
 
 
