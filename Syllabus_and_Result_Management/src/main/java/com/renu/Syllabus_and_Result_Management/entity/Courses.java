@@ -1,5 +1,9 @@
 package com.renu.Syllabus_and_Result_Management.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -7,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -46,9 +51,10 @@ public class Courses extends CoursesBaseEntity<Long> {
 	@Column(name="course15",nullable=true,unique=true)
 	private String course15;
 	@OneToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="f_id",unique=true,nullable=false)
+	@JoinColumn(name="f_id",unique=true,nullable=false,referencedColumnName="id")
 	private Faculty faculty;
-	private Results result;
+	@OneToMany(mappedBy="courses",cascade=CascadeType.ALL,fetch=FetchType.LAZY,orphanRemoval=true)	
+	private List<Results> results=new ArrayList<>();
 	@Override
 	public Long getId() {
 		// TODO Auto-generated method stub
@@ -59,11 +65,10 @@ public class Courses extends CoursesBaseEntity<Long> {
 		// TODO Auto-generated constructor stub
 	}
 
-	
-	
 	public Courses(Long id, String course1, String course2, String course3, String course4, String course5,
 			String course6, String course7, String course8, String course9, String course10, String course11,
-			String course12, String course13, String course14, String course15, Faculty faculty, Results result) {
+			String course12, String course13, String course14, String course15, Faculty faculty,
+			List<Results> results) {
 		super();
 		this.id = id;
 		this.course1 = course1;
@@ -82,7 +87,7 @@ public class Courses extends CoursesBaseEntity<Long> {
 		this.course14 = course14;
 		this.course15 = course15;
 		this.faculty = faculty;
-		this.result = result;
+		this.results = results;
 	}
 
 	public String getCourse1() {
@@ -213,12 +218,12 @@ public class Courses extends CoursesBaseEntity<Long> {
 		this.faculty = faculty;
 	}
 
-	public Results getResult() {
-		return result;
+	public List<Results> getResults() {
+		return results;
 	}
 
-	public void setResult(Results result) {
-		this.result = result;
+	public void setResults(List<Results> results) {
+		this.results = results;
 	}
 
 	public void setId(Long id) {
@@ -231,9 +236,11 @@ public class Courses extends CoursesBaseEntity<Long> {
 				+ ", course4=" + course4 + ", course5=" + course5 + ", course6=" + course6 + ", course7=" + course7
 				+ ", course8=" + course8 + ", course9=" + course9 + ", course10=" + course10 + ", course11=" + course11
 				+ ", course12=" + course12 + ", course13=" + course13 + ", course14=" + course14 + ", course15="
-				+ course15 + "]";
+				+ course15 + ", faculty=" + faculty + ", results=" + results + "]";
 	}
 
+	
+	
 	
 	
 	

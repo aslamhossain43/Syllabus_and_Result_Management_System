@@ -2,10 +2,12 @@ package com.renu.Syllabus_and_Result_Management.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Results extends ResultsBasicEntity<Long> {
@@ -53,8 +55,8 @@ public class Results extends ResultsBasicEntity<Long> {
 		// TODO Auto-generated method stub
 		return id;
 	}
-	@OneToMany
-	@Column(name="c_id",nullable=false)
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="c_id",referencedColumnName="id",nullable=false,unique=true)
 	private Courses courses;
 	
 	public Results() {
