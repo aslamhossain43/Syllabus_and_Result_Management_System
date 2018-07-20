@@ -20,194 +20,115 @@ public class Courses extends CoursesBaseEntity<Long> {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-	@Column(name="course1",nullable=true,unique=true)
-	private String course1;
-	@Column(name="course2",nullable=true,unique=true)
-	private String course2;
-	@Column(name="course3",nullable=true,unique=true)
-	private String course3;
-	@Column(name="course4",nullable=true,unique=true)
-	private String course4;
-	@Column(name="course5",nullable=true,unique=true)
-	private String course5;
-	@Column(name="course6",nullable=true,unique=true)
-	private String course6;
-	@Column(name="course7",nullable=true,unique=true)
-	private String course7;
-	@Column(name="course8",nullable=true,unique=true)
-	private String course8;
-	@Column(name="course9",nullable=true,unique=true)
-	private String course9;
-	@Column(name="course10",nullable=true,unique=true)
-	private String course10;
-	@Column(name="course11",nullable=true,unique=true)
-	private String course11;
-	@Column(name="course12",nullable=true,unique=true)
-	private String course12;
-	@Column(name="course13",nullable=true,unique=true)
-	private String course13;
-	@Column(name="course14",nullable=true,unique=true)
-	private String course14;
-	@Column(name="course15",nullable=true,unique=true)
-	private String course15;
+	@Column(name="c_title",nullable=false,unique=true)
+	private String c_title;
+	@Column(name="c_code",nullable=false,unique=true)
+	private String c_code;
+	@Column(name="c_credit",nullable=false)
+	private String c_credit;
+	@Column(name="c_type",nullable=false)
+	private String c_type;
+	@Column(name="f_name",nullable=false)
+	private String f_name;
+	@Column(name="d_name",nullable=false)
+	private String d_name;
+	@Column(name="level",nullable=false)
+	private String level;
+	@Column(name="semester",nullable=false)
+	private String semester;
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="f_id",unique=true,nullable=false,referencedColumnName="id")
 	private Faculty faculty;
-	@OneToMany(mappedBy="courses",cascade=CascadeType.ALL,fetch=FetchType.LAZY,orphanRemoval=true)	
+	@OneToMany(mappedBy="courses",cascade=CascadeType.ALL)	
 	private List<Results> results=new ArrayList<>();
 	@Override
 	public Long getId() {
-		// TODO Auto-generated method stub
+		
 		return id;
 	}
 	
 	public Courses() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
-	public Courses(Long id, String course1, String course2, String course3, String course4, String course5,
-			String course6, String course7, String course8, String course9, String course10, String course11,
-			String course12, String course13, String course14, String course15, Faculty faculty,
-			List<Results> results) {
+	public Courses(Long id, String c_title, String c_code, String c_credit, String c_type, String f_name, String d_name,
+			String level, String semester, Faculty faculty, List<Results> results) {
 		super();
 		this.id = id;
-		this.course1 = course1;
-		this.course2 = course2;
-		this.course3 = course3;
-		this.course4 = course4;
-		this.course5 = course5;
-		this.course6 = course6;
-		this.course7 = course7;
-		this.course8 = course8;
-		this.course9 = course9;
-		this.course10 = course10;
-		this.course11 = course11;
-		this.course12 = course12;
-		this.course13 = course13;
-		this.course14 = course14;
-		this.course15 = course15;
+		this.c_title = c_title;
+		this.c_code = c_code;
+		this.c_credit = c_credit;
+		this.c_type = c_type;
+		this.f_name = f_name;
+		this.d_name = d_name;
+		this.level = level;
+		this.semester = semester;
 		this.faculty = faculty;
 		this.results = results;
 	}
 
-	public String getCourse1() {
-		return course1;
+	public String getC_title() {
+		return c_title;
 	}
 
-	public void setCourse1(String course1) {
-		this.course1 = course1;
+	public void setC_title(String c_title) {
+		this.c_title = c_title;
 	}
 
-	public String getCourse2() {
-		return course2;
+	public String getC_code() {
+		return c_code;
 	}
 
-	public void setCourse2(String course2) {
-		this.course2 = course2;
+	public void setC_code(String c_code) {
+		this.c_code = c_code;
 	}
 
-	public String getCourse3() {
-		return course3;
+	public String getC_credit() {
+		return c_credit;
 	}
 
-	public void setCourse3(String course3) {
-		this.course3 = course3;
+	public void setC_credit(String c_credit) {
+		this.c_credit = c_credit;
 	}
 
-	public String getCourse4() {
-		return course4;
+	public String getC_type() {
+		return c_type;
 	}
 
-	public void setCourse4(String course4) {
-		this.course4 = course4;
+	public void setC_type(String c_type) {
+		this.c_type = c_type;
 	}
 
-	public String getCourse5() {
-		return course5;
+	public String getF_name() {
+		return f_name;
 	}
 
-	public void setCourse5(String course5) {
-		this.course5 = course5;
+	public void setF_name(String f_name) {
+		this.f_name = f_name;
 	}
 
-	public String getCourse6() {
-		return course6;
+	public String getD_name() {
+		return d_name;
 	}
 
-	public void setCourse6(String course6) {
-		this.course6 = course6;
+	public void setD_name(String d_name) {
+		this.d_name = d_name;
 	}
 
-	public String getCourse7() {
-		return course7;
+	public String getLevel() {
+		return level;
 	}
 
-	public void setCourse7(String course7) {
-		this.course7 = course7;
+	public void setLevel(String level) {
+		this.level = level;
 	}
 
-	public String getCourse8() {
-		return course8;
+	public String getSemester() {
+		return semester;
 	}
 
-	public void setCourse8(String course8) {
-		this.course8 = course8;
-	}
-
-	public String getCourse9() {
-		return course9;
-	}
-
-	public void setCourse9(String course9) {
-		this.course9 = course9;
-	}
-
-	public String getCourse10() {
-		return course10;
-	}
-
-	public void setCourse10(String course10) {
-		this.course10 = course10;
-	}
-
-	public String getCourse11() {
-		return course11;
-	}
-
-	public void setCourse11(String course11) {
-		this.course11 = course11;
-	}
-
-	public String getCourse12() {
-		return course12;
-	}
-
-	public void setCourse12(String course12) {
-		this.course12 = course12;
-	}
-
-	public String getCourse13() {
-		return course13;
-	}
-
-	public void setCourse13(String course13) {
-		this.course13 = course13;
-	}
-
-	public String getCourse14() {
-		return course14;
-	}
-
-	public void setCourse14(String course14) {
-		this.course14 = course14;
-	}
-
-	public String getCourse15() {
-		return course15;
-	}
-
-	public void setCourse15(String course15) {
-		this.course15 = course15;
+	public void setSemester(String semester) {
+		this.semester = semester;
 	}
 
 	public Faculty getFaculty() {
@@ -232,11 +153,9 @@ public class Courses extends CoursesBaseEntity<Long> {
 
 	@Override
 	public String toString() {
-		return "Courses [id=" + id + ", course1=" + course1 + ", course2=" + course2 + ", course3=" + course3
-				+ ", course4=" + course4 + ", course5=" + course5 + ", course6=" + course6 + ", course7=" + course7
-				+ ", course8=" + course8 + ", course9=" + course9 + ", course10=" + course10 + ", course11=" + course11
-				+ ", course12=" + course12 + ", course13=" + course13 + ", course14=" + course14 + ", course15="
-				+ course15 + ", faculty=" + faculty + ", results=" + results + "]";
+		return "Courses [id=" + id + ", c_title=" + c_title + ", c_code=" + c_code + ", c_credit=" + c_credit
+				+ ", c_type=" + c_type + ", f_name=" + f_name + ", d_name=" + d_name + ", level=" + level
+				+ ", semester=" + semester + "]";
 	}
 
 	

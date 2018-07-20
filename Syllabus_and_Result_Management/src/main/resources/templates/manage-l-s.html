@@ -11,15 +11,27 @@
 	</head>
 	
 	<body>
+	
+	
+<div layout:fragment="content">
+<div class="container">
+<table>
 
-	<div layout:fragment="content">
-	<h1>From home page</h1>
+<tr>
+<td><h2 th:each="faculties:${faculty}" th:text="${faculties.faculty}" ></h2></td>
+</tr>
+<tr><td><h2 th:each="departments:${department}" th:text="${departments.department}"></h2>
+</td>
+
+</tr>
+
+</table>
+
+
+</div>
+</div>
 	
-	</div>
 	
+</body>
 	
-	</body>
-	
-	
-	
-	</html>
+</html>

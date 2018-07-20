@@ -31,8 +31,7 @@ public class Faculty extends FacultyBaseEntity<Long>{
 		
 	}
 
-	public Faculty(long id, String f_name, String d_name, String level, String semester, double total_credit,
-			Courses courses) {
+	public Faculty(long id, String f_name, String d_name, String level, String semester, double total_credit) {
 		super();
 		this.id = id;
 		this.f_name = f_name;
@@ -40,7 +39,7 @@ public class Faculty extends FacultyBaseEntity<Long>{
 		this.level = level;
 		this.semester = semester;
 		this.total_credit = total_credit;
-		this.courses = courses;
+		
 	}
 
 	public Long getId() {
@@ -102,10 +101,10 @@ public class Faculty extends FacultyBaseEntity<Long>{
 	@Override
 	public String toString() {
 		return "Faculty [id=" + id + ", f_name=" + f_name + ", d_name=" + d_name + ", level=" + level + ", semester="
-				+ semester + ", total_credit=" + total_credit + ", courses=" + courses + "]";
+				+ semester + ", total_credit=" + total_credit + "]";
 	}
-	
-	
+
+
 	
 
 

@@ -20,36 +20,39 @@ public class Results extends ResultsBasicEntity<Long> {
 	@Column(name="s_name",nullable=false)
 	private long sName;
 	
-	@Column(name="course1",nullable=true,unique=true)
+	@Column(name="course1",nullable=false,unique=true)
 	private String course1;
-	@Column(name="course2",nullable=true,unique=true)
+	@Column(name="course2",nullable=false,unique=true)
 	private String course2;
-	@Column(name="course3",nullable=true,unique=true)
+	@Column(name="course3",nullable=false,unique=true)
 	private String course3;
-	@Column(name="course4",nullable=true,unique=true)
+	@Column(name="course4",nullable=false,unique=true)
 	private String course4;
-	@Column(name="course5",nullable=true,unique=true)
+	@Column(name="course5",nullable=false,unique=true)
 	private String course5;
-	@Column(name="course6",nullable=true,unique=true)
+	@Column(name="course6",nullable=false,unique=true)
 	private String course6;
-	@Column(name="course7",nullable=true,unique=true)
+	@Column(name="course7",nullable=false,unique=true)
 	private String course7;
-	@Column(name="course8",nullable=true,unique=true)
+	@Column(name="course8",nullable=false,unique=true)
 	private String course8;
-	@Column(name="course9",nullable=true,unique=true)
+	@Column(name="course9",nullable=false,unique=true)
 	private String course9;
-	@Column(name="course10",nullable=true,unique=true)
+	@Column(name="course10",nullable=false,unique=true)
 	private String course10;
-	@Column(name="course11",nullable=true,unique=true)
+	@Column(name="course11",nullable=false,unique=true)
 	private String course11;
-	@Column(name="course12",nullable=true,unique=true)
+	@Column(name="course12",nullable=false,unique=true)
 	private String course12;
-	@Column(name="course13",nullable=true,unique=true)
+	@Column(name="course13",nullable=false,unique=true)
 	private String course13;
-	@Column(name="course14",nullable=true,unique=true)
+	@Column(name="course14",nullable=false,unique=true)
 	private String course14;
-	@Column(name="course15",nullable=true,unique=true)
+	@Column(name="course15",nullable=false,unique=true)
 	private String course15;
+	@Column(name="gpa",nullable=false,unique=false)
+	private String gpa;
+	
 	@Override
 	public Long getId() {
 		// TODO Auto-generated method stub
@@ -65,7 +68,8 @@ public class Results extends ResultsBasicEntity<Long> {
 
 	public Results(long id, long sid, long sName, String course1, String course2, String course3, String course4,
 			String course5, String course6, String course7, String course8, String course9, String course10,
-			String course11, String course12, String course13, String course14, String course15, Courses courses) {
+			String course11, String course12, String course13, String course14, String course15, String gpa,
+			Courses courses) {
 		super();
 		this.id = id;
 		this.sid = sid;
@@ -85,6 +89,7 @@ public class Results extends ResultsBasicEntity<Long> {
 		this.course13 = course13;
 		this.course14 = course14;
 		this.course15 = course15;
+		this.gpa = gpa;
 		this.courses = courses;
 	}
 
@@ -224,6 +229,14 @@ public class Results extends ResultsBasicEntity<Long> {
 		this.course15 = course15;
 	}
 
+	public String getGpa() {
+		return gpa;
+	}
+
+	public void setGpa(String gpa) {
+		this.gpa = gpa;
+	}
+
 	public Courses getCourses() {
 		return courses;
 	}
@@ -242,8 +255,9 @@ public class Results extends ResultsBasicEntity<Long> {
 				+ course2 + ", course3=" + course3 + ", course4=" + course4 + ", course5=" + course5 + ", course6="
 				+ course6 + ", course7=" + course7 + ", course8=" + course8 + ", course9=" + course9 + ", course10="
 				+ course10 + ", course11=" + course11 + ", course12=" + course12 + ", course13=" + course13
-				+ ", course14=" + course14 + ", course15=" + course15 + "]";
+				+ ", course14=" + course14 + ", course15=" + course15 + ", gpa=" + gpa + ", courses=" + courses + "]";
 	}
+
 	
 	
 	

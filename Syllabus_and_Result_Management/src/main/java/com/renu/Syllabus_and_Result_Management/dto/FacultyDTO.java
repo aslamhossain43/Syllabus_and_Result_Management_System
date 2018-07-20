@@ -1,16 +1,24 @@
 package com.renu.Syllabus_and_Result_Management.dto;
 
-import com.renu.Syllabus_and_Result_Management.entity.Faculty;
+import java.io.Serializable;
 
-public class FacultyDTO {
+import javax.validation.constraints.Size;
 
+public class FacultyDTO implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private long id;
+	@Size(min=3,max=150)
 	private String f_name;
+	@Size(min=3,max=150)
 	private String d_name;
 	private String level;
 	private String semester;
 	private double total_credit;
-	private Faculty faculty;
+	
 	
 	
 	
@@ -20,8 +28,8 @@ public class FacultyDTO {
 
 
 
-	public FacultyDTO(long id, String f_name, String d_name, String level, String semester, double total_credit,
-			Faculty faculty) {
+
+	public FacultyDTO(long id, String f_name, String d_name, String level, String semester, double total_credit) {
 		super();
 		this.id = id;
 		this.f_name = f_name;
@@ -29,8 +37,8 @@ public class FacultyDTO {
 		this.level = level;
 		this.semester = semester;
 		this.total_credit = total_credit;
-		this.faculty = faculty;
 	}
+
 
 
 
@@ -40,9 +48,11 @@ public class FacultyDTO {
 
 
 
+
 	public void setId(long id) {
 		this.id = id;
 	}
+
 
 
 
@@ -52,9 +62,11 @@ public class FacultyDTO {
 
 
 
+
 	public void setF_name(String f_name) {
 		this.f_name = f_name;
 	}
+
 
 
 
@@ -64,9 +76,11 @@ public class FacultyDTO {
 
 
 
+
 	public void setD_name(String d_name) {
 		this.d_name = d_name;
 	}
+
 
 
 
@@ -76,9 +90,11 @@ public class FacultyDTO {
 
 
 
+
 	public void setLevel(String level) {
 		this.level = level;
 	}
+
 
 
 
@@ -88,9 +104,11 @@ public class FacultyDTO {
 
 
 
+
 	public void setSemester(String semester) {
 		this.semester = semester;
 	}
+
 
 
 
@@ -100,32 +118,22 @@ public class FacultyDTO {
 
 
 
+
 	public void setTotal_credit(double total_credit) {
 		this.total_credit = total_credit;
 	}
 
 
 
-	public Faculty getFaculty() {
-		return faculty;
-	}
-
-
-
-	public void setFaculty(Faculty faculty) {
-		this.faculty = faculty;
-	}
-
-
 
 	@Override
 	public String toString() {
 		return "FacultyDTO [id=" + id + ", f_name=" + f_name + ", d_name=" + d_name + ", level=" + level + ", semester="
-				+ semester + ", total_credit=" + total_credit + ", faculty=" + faculty + "]";
+				+ semester + ", total_credit=" + total_credit + "]";
 	}
-	
-	
-	
+
+
+
 	
 	
 	

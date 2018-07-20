@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!-- xmlns is used to use tags of thymeleaf  -->
+<!-- layout is used to indicate layout file -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layouts/main">
+	<head>
+	
+	
+	</head>
+	
+	<body>
+	
+	
+<div layout:fragment="content">
+<div class="container">
+
+
+
+<fieldset>
+
+
+<form class="form-horizontal" role="form" th:action="@{/manage/createFaculty}" method="post">
+
+
+<div class="form-group">
+<label for="faculty" class="col-sm-2 control-label">Faculty : </label>
+<div class="col-sm-4">
+<input type="text" class="form-control" id="faculty" name="faculty" placeholder=" Enter Faculty Name">
+</div>
+<p class="text-danger" th:text="${param.error[0]}" th:unless="${param.error==null}">
+Invalid Faculty
+</div>
+
+
+<div class="forn-group">
+<div class="col-offset-2 col-sm-10">
+<button type="submit" class="btn btn-primary">Create Faculty</button>
+</div>
+</div>
+
+</form>
+</fieldset>
+
+</div>
+</div>
+	
+	
+	</body>
+	
+	
+	
+	</html>
