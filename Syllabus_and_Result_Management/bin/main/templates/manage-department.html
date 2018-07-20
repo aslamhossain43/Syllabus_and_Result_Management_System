@@ -24,17 +24,11 @@
 </div>
 </div>
 <br>
-<table>
-<tr th:each="faculties:${faculty}">
-<td></td>
-<td th:text="${faculties.faculty}"></td>
-</tr>
 
-</table>
 <fieldset>
 
 
-<form class="form-horizontal" role="form" th:action="@{/manage/createDepartment}" method="post">
+<form class="form-horizontal" role="form" th:action="@{/createDepartment}" method="post">
 
 
 <div class="form-group">

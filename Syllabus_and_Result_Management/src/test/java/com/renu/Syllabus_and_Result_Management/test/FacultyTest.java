@@ -23,7 +23,7 @@ public class FacultyTest {
 	
 	@Test
 	public void test() {
-		Faculty faculty=new Faculty(1L, "CSE", "ECE", "ll-4", "s-1", 27.50);
+		Faculty faculty=new Faculty();
 		facultyRepository.save(faculty);
 		System.out.println(facultyRepository.findAll());
 		

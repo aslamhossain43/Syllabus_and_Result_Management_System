@@ -15,18 +15,26 @@
 	
 <div layout:fragment="content">
 <div class="container">
-
-
-
+<div class="row">
+<div class="col-lg-8 col-lg-offset-2">
+<br>
+<div th:if="${message}">
+<div class="row">
+<div class="col-md-8 col-md-offset-2">
+<div class="alert alert-info fade in" th:text="${message}"></div>
+</div>
+</div>
+</div>
+<br>
 <fieldset>
 
 
-<form class="form-horizontal" role="form" th:action="@{/manage/createFaculty}" method="post">
+<form class="form-horizontal" role="form" th:action="@{/createFaculty}" method="post">
 
 
 <div class="form-group">
 <label for="faculty" class="col-sm-2 control-label">Faculty : </label>
-<div class="col-sm-4">
+<div class="col-sm-6">
 <input type="text" class="form-control" id="faculty" name="faculty" placeholder=" Enter Faculty Name">
 </div>
 <p class="text-danger" th:text="${param.error[0]}" th:unless="${param.error==null}">
@@ -35,13 +43,17 @@ Invalid Faculty
 
 
 <div class="forn-group">
-<div class="col-offset-2 col-sm-10">
+<div class="col-offset-2 col-sm-10" >
 <button type="submit" class="btn btn-primary">Create Faculty</button>
 </div>
 </div>
 
 </form>
 </fieldset>
+</div>
+</div>
+
+
 
 </div>
 </div>

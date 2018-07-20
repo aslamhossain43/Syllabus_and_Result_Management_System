@@ -23,7 +23,7 @@ public class Faculty extends FacultyBaseEntity<Long>{
 	@Column(name="semester",nullable=false)
 	private String semester;
 	@Column(name="total_credit",nullable=false)
-	private double total_credit;
+	private String total_credit;
 	@OneToOne(mappedBy="faculty",fetch=FetchType.LAZY)
 	private Courses courses;
 	
@@ -31,7 +31,7 @@ public class Faculty extends FacultyBaseEntity<Long>{
 		
 	}
 
-	public Faculty(long id, String f_name, String d_name, String level, String semester, double total_credit) {
+	public Faculty(long id, String f_name, String d_name, String level, String semester, String total_credit) {
 		super();
 		this.id = id;
 		this.f_name = f_name;
@@ -82,11 +82,11 @@ public class Faculty extends FacultyBaseEntity<Long>{
 		this.semester = semester;
 	}
 
-	public double getTotal_credit() {
+	public String getTotal_credit() {
 		return total_credit;
 	}
 
-	public void setTotal_credit(double total_credit) {
+	public void setTotal_credit(String total_credit) {
 		this.total_credit = total_credit;
 	}
 
