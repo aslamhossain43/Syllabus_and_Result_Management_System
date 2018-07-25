@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!-- xmlns is used to use tags of thymeleaf  -->
+<!-- layout is used to indicate layout file -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layouts/main">
+	<head>
+	
+	
+	</head>
+	
+	<body>
+	
+	
+
+<div layout:fragment="content">
+<div class="container">
+<div class="row">
+<div class="col-lg-10 col-lg-offset-1">
+<br>
+<div th:if="${message}">
+<div class="row">
+<div class="col-md-8 col-md-offset-2">
+<div class="alert alert-info fade in" th:text="${message}"></div>
+</div>
+</div>
+</div>
+<br>
+<form class="form-horizontal" role="form" th:action="@{/createResult}" method="post">
+
+<div class="form-group">
+<label for="sid" class="col-lg-4 control-label">Student Id : </label>
+<div class="col-lg-6">
+<input type="text" class="form-control" id="sid" name="sid" placeholder="Student ID" autocomplete="off">
+
+</div>
+<p class="text-danger" th:text="${param.error[0]}" th:unless="${param.error==null}">
+Invalid Student ID
+</div>
+
+<div class="form-group">
+<label for="sname" class="col-lg-4 control-label">Student Name : </label>
+<div class="col-lg-6">
+<input type="text" class="form-control" id="sname" name="sname" placeholder="Student Name" autocomplete="off">
+
+
+</div>
+<p class="text-danger" th:text="${param.error[0]}" th:unless="${param.error==null}">
+Invalid Student Name
+</div>
+
+<div class="form-group">
+<label for="session" class="col-lg-4 control-label">Session : </label>
+<div class="col-lg-6">
+<input type="text" class="form-control" id="session" name="session" placeholder="Session" autocomplete="off">
+
+</div>
+<p class="text-danger" th:text="${param.error[0]}" th:unless="${param.error==null}">
+Invalid Session
+</div>
+
+
+<div class="form-group" th:each="hmmm:${hmm}">
+<label for="course1" class="col-lg-4 control-label" th:text="${hmmm.c_code}">Session : </label>
+<div class="col-lg-6">
+<input type="text" class="form-control" id="course1" name="${course}" placeholder="${hmmm.c_code}" autocomplete="off">
+
+</div>
+<p class="text-danger" th:text="${param.error[0]}" th:unless="${param.error==null}">
+Invalid Session
+</div>
+
+
+
+<div class="forn-group">
+<div class=" col-md-push-2 col-lg-4" >
+<button type="submit" class="btn btn-primary">Submit</button>
+</div>
+</div>
+
+</form>
+
+
+
+
+
+
+</div>
+</div>
+
+
+
+</div>
+</div>
+	
+
+	
+	
+</body>
+	
+</html>

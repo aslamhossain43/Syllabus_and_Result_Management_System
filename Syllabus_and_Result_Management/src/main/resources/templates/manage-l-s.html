@@ -15,7 +15,7 @@
 <div layout:fragment="content">
 <div class="container">
 <div class="row">
-<div class="col-lg-8 col-lg-offset-2">
+<div class="col-lg-10 col-lg-offset-1">
 <br>
 <div th:if="${message}">
 <div class="row">
@@ -26,13 +26,11 @@
 </div>
 <br>
 <form class="form-horizontal" role="form" th:action="@{/createLS}" method="post">
-<table>
-<tr>
-<td>
+
 <div class="form-group">
-<label for="level" class="col-sm-6 control-label">Chose a Level : </label>
-<div class="col-sm-6">
-<input type="text" class="form-control" id="level" name="level" list="l" placeholder="Level">
+<label for="level" class="col-lg-4 control-label">Chose a Level : </label>
+<div class="col-lg-6">
+<input type="text" class="form-control" id="level" name="level" list="l" placeholder="Level" autocomplete="off">
 <datalist id="l">
 
 <option>Level 1</option>
@@ -44,12 +42,11 @@
 <p class="text-danger" th:text="${param.error[0]}" th:unless="${param.error==null}">
 Invalid Department
 </div>
-</td>
-<td>
+
 <div class="form-group">
-<label for="semester" class="col-sm-6 control-label">Chose a Semester : </label>
-<div class="col-sm-6">
-<input type="text" class="form-control" id="semester" name="semester" list="s" placeholder="Semester">
+<label for="semester" class="col-lg-4 control-label">Chose a Semester : </label>
+<div class="col-lg-6">
+<input type="text" class="form-control" id="semester" name="semester" list="s" placeholder="Semester" autocomplete="off">
 <datalist id="s">
 
 <option>Semester 1</option>
@@ -61,13 +58,11 @@ Invalid Department
 <p class="text-danger" th:text="${param.error[0]}" th:unless="${param.error==null}">
 Invalid Department
 </div>
-</td>
-</tr>
-<tr>
-<td><div class="form-group">
-<label for="faculty" class="col-sm-6 control-label">Chose a Faculty : </label>
-<div class="col-sm-6">
-<input type="text" class="form-control" id="faculty" name="f_name" list="f" placeholder="Faculty">
+
+<div class="form-group">
+<label for="faculty" class="col-lg-4 control-label">Chose a Faculty : </label>
+<div class="col-lg-6">
+<input type="text" class="form-control" id="faculty" name="f_name" list="f" placeholder="Faculty" autocomplete="off">
 <datalist id="f">
 <option th:each="dfs:${df}" th:text="${dfs.faculty}"></option>
 
@@ -76,12 +71,12 @@ Invalid Department
 </div>
 <p class="text-danger" th:text="${param.error[0]}" th:unless="${param.error==null}">
 Invalid Department
-</div></td>
+</div>
 
-<td><div class="form-group">
-<label for="department" class="col-sm-6 control-label">Chose a Department : </label>
-<div class="col-sm-6">
-<input type="text" class="form-control" id="department" name="d_name" list="d" placeholder="Department">
+<div class="form-group">
+<label for="department" class="col-lg-4 control-label">Chose a Department : </label>
+<div class="col-lg-6">
+<input type="text" class="form-control" id="department" name="d_name" list="d" placeholder="Department" autocomplete="off">
 <datalist id="d">
 <option th:each="dfs:${df}" th:text="${dfs.department}"></option>
 
@@ -90,38 +85,23 @@ Invalid Department
 </div>
 <p class="text-danger" th:text="${param.error[0]}" th:unless="${param.error==null}">
 Invalid Department
-</div></td>
-</tr>
-<tr>
-<td>
+</div>
 
 <div class="form-group">
-<label for="total_credit" class="col-sm-6 control-label">Enter total credit : </label>
-<div class="col-sm-6">
-<input type="text" class="form-control" id="total_credit" name="total_credit" placeholder="Total Credit">
+<label for="total_credit" class="col-lg-4 control-label">Enter total credit : </label>
+<div class="col-lg-6">
+<input type="text" class="form-control" id="total_credit" name="total_credit" placeholder="Total Credit" autocomplete="off">
 </div>
 <p class="text-danger" th:text="${param.error[0]}" th:unless="${param.error==null}">
 Invalid Faculty
 </div>
-</td>
-
-
-</tr>
-
-<tr>
-<td>
 
 <div class="forn-group">
-<div class="col-sm-push-10 col-sm-4" >
+<div class=" col-md-push-2 col-lg-4" >
 <button type="submit" class="btn btn-primary">Create Syllabus</button>
 </div>
 </div>
 
-</td>
-</tr>
-
-
-</table>
 </form>
 
 

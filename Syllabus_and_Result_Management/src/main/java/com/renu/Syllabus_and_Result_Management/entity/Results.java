@@ -15,42 +15,44 @@ public class Results extends ResultsBasicEntity<Long> {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
-	@Column(name="s_id",nullable=false,unique=true)
-	private long sid;
-	@Column(name="s_name",nullable=false)
-	private long sName;
+	@Column(name="sid",nullable=false,unique=true)
+	private String sid;
+	@Column(name="sname",nullable=false)
+	private String sname;
+	@Column(name="session",nullable=false)
+	private String session;
 	
-	@Column(name="course1",nullable=false,unique=true)
+	@Column(name="course1")
 	private String course1;
-	@Column(name="course2",nullable=false,unique=true)
+	@Column(name="course2")
 	private String course2;
-	@Column(name="course3",nullable=false,unique=true)
+	@Column(name="course3")
 	private String course3;
-	@Column(name="course4",nullable=false,unique=true)
+	@Column(name="course4")
 	private String course4;
-	@Column(name="course5",nullable=false,unique=true)
+	@Column(name="course5")
 	private String course5;
-	@Column(name="course6",nullable=false,unique=true)
+	@Column(name="course6")
 	private String course6;
-	@Column(name="course7",nullable=false,unique=true)
+	@Column(name="course7")
 	private String course7;
-	@Column(name="course8",nullable=false,unique=true)
+	@Column(name="course8")
 	private String course8;
-	@Column(name="course9",nullable=false,unique=true)
+	@Column(name="course9")
 	private String course9;
-	@Column(name="course10",nullable=false,unique=true)
+	@Column(name="course10")
 	private String course10;
-	@Column(name="course11",nullable=false,unique=true)
+	@Column(name="course11")
 	private String course11;
-	@Column(name="course12",nullable=false,unique=true)
+	@Column(name="course12")
 	private String course12;
-	@Column(name="course13",nullable=false,unique=true)
+	@Column(name="course13")
 	private String course13;
-	@Column(name="course14",nullable=false,unique=true)
+	@Column(name="course14")
 	private String course14;
-	@Column(name="course15",nullable=false,unique=true)
+	@Column(name="course15")
 	private String course15;
-	@Column(name="gpa",nullable=false,unique=false)
+	@Column(name="gpa")
 	private String gpa;
 	
 	@Override
@@ -66,14 +68,14 @@ public class Results extends ResultsBasicEntity<Long> {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Results(long id, long sid, long sName, String course1, String course2, String course3, String course4,
+	public Results(long id, String sid, String sName, String course1, String course2, String course3, String course4,
 			String course5, String course6, String course7, String course8, String course9, String course10,
 			String course11, String course12, String course13, String course14, String course15, String gpa,
 			Courses courses) {
 		super();
 		this.id = id;
 		this.sid = sid;
-		this.sName = sName;
+		this.sname = sName;
 		this.course1 = course1;
 		this.course2 = course2;
 		this.course3 = course3;
@@ -93,20 +95,20 @@ public class Results extends ResultsBasicEntity<Long> {
 		this.courses = courses;
 	}
 
-	public long getSid() {
+	public String getSid() {
 		return sid;
 	}
 
-	public void setSid(long sid) {
+	public void setSid(String sid) {
 		this.sid = sid;
 	}
 
-	public long getsName() {
-		return sName;
+	public String getsName() {
+		return sname;
 	}
 
-	public void setsName(long sName) {
-		this.sName = sName;
+	public void setsName(String sName) {
+		this.sname = sName;
 	}
 
 	public String getCourse1() {
@@ -251,7 +253,7 @@ public class Results extends ResultsBasicEntity<Long> {
 
 	@Override
 	public String toString() {
-		return "Results [id=" + id + ", sid=" + sid + ", sName=" + sName + ", course1=" + course1 + ", course2="
+		return "Results [id=" + id + ", sid=" + sid + ", sName=" + sname + ", course1=" + course1 + ", course2="
 				+ course2 + ", course3=" + course3 + ", course4=" + course4 + ", course5=" + course5 + ", course6="
 				+ course6 + ", course7=" + course7 + ", course8=" + course8 + ", course9=" + course9 + ", course10="
 				+ course10 + ", course11=" + course11 + ", course12=" + course12 + ", course13=" + course13

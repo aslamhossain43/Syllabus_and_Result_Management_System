@@ -13,21 +13,145 @@
 	<body>
 	
 	
+
 <div layout:fragment="content">
 <div class="container">
+<div class="row">
+<div class="col-lg-10 col-lg-offset-1">
 <br>
-<table>
-<tr>
-<td><h2 th:text="${faculty}" ></h2><br></td>
-<td><h2 th:text="${department}" ></h2><br></td>
-<td><h2 th:text="${level}" ></h2><br></td>
-<td><h2 th:text="${semester}" ></h2><br></td>
-</tr>
+<div th:if="${message}">
+<div class="row">
+<div class="col-md-8 col-md-offset-2">
+<div class="alert alert-info fade in" th:text="${message}"></div>
+</div>
+</div>
+</div>
+<br>
+<form class="form-horizontal" role="form" th:action="@{/createCourses}" method="post">
 
-</table>
+<div class="form-group">
+<label for="c-title" class="col-lg-4 control-label">Course Title : </label>
+<div class="col-lg-6">
+<input type="text" class="form-control" id="c-title" name="c_title" placeholder="Course Title" autocomplete="off">
+
+</div>
+<p class="text-danger" th:text="${param.error[0]}" th:unless="${param.error==null}">
+Invalid Department
+</div>
+
+<div class="form-group">
+<label for="c-code" class="col-lg-4 control-label">Course Code : </label>
+<div class="col-lg-6">
+<input type="text" class="form-control" id="c-code" name="c_code" placeholder="Course Code" autocomplete="off">
+
+
+</div>
+<p class="text-danger" th:text="${param.error[0]}" th:unless="${param.error==null}">
+Invalid Department
+</div>
+
+<div class="form-group">
+<label for="credit" class="col-lg-4 control-label">Course Credit : </label>
+<div class="col-lg-6">
+<input type="text" class="form-control" id="credit" name="c_credit" placeholder="Course Credit" autocomplete="off">
+
+</div>
+<p class="text-danger" th:text="${param.error[0]}" th:unless="${param.error==null}">
+Invalid Department
+</div>
+
+<div class="form-group">
+<label for="c-type" class="col-lg-4 control-label">Course Type : </label>
+<div class="col-lg-6">
+<input type="text" class="form-control" id="c-type" name="c_type" list="t" placeholder="Course Type" autocomplete="off">
+<datalist id="t">
+
+<option>Theory</option>
+<option>Sessional</option>
+
+</datalist>
+
+
+</div>
+<p class="text-danger" th:text="${param.error[0]}" th:unless="${param.error==null}">
+Invalid Department
+</div>
+
+<div class="form-group">
+<label for="faculty" class="col-lg-4 control-label">Chose a Faculty : </label>
+<div class="col-lg-6">
+<input type="text" class="form-control" id="faculty" name="f_name" list="f" placeholder="Faculty" autocomplete="off">
+<datalist id="f">
+<option th:each="lss:${ls}" th:text="${lss.f_name}"></option>
+
+</datalist>
 
 </div>
 </div>
+
+
+
+<div class="form-group">
+<label for="department" class="col-lg-4 control-label">Chose a Department : </label>
+<div class="col-lg-6">
+<input type="text" class="form-control" id="department" name="d_name" list="d" placeholder="Department" autocomplete="off">
+<datalist id="d">
+<option th:each="lss:${ls}" th:text="${lss.d_name}"></option>
+
+</datalist>
+
+</div>
+</div>
+
+
+<div class="form-group">
+<label for="level" class="col-lg-4 control-label">Chose a Level : </label>
+<div class="col-lg-6">
+<input type="text" class="form-control" id="level" name="level" list="l" placeholder="Level" autocomplete="off">
+<datalist id="l">
+<option>Level 1</option>
+<option>Level 2</option>
+
+</datalist>
+
+</div>
+</div>
+
+<div class="form-group">
+<label for="semester" class="col-lg-4 control-label">Chose a Semester : </label>
+<div class="col-lg-6">
+<input type="text" class="form-control" id="semester" name="semester" list="s" placeholder="Semester" autocomplete="off">
+<datalist id="s">
+<option>Semester 1</option>
+<option>Semester 2</option>
+</datalist>
+
+</div>
+</div>
+
+
+<div class="forn-group">
+<div class=" col-md-push-2 col-lg-4" >
+<button type="submit" class="btn btn-primary">Create Courses</button>
+</div>
+</div>
+
+</form>
+
+
+
+
+
+
+</div>
+</div>
+
+
+
+</div>
+</div>
+	
+
 	
 	
 </body>

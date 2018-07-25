@@ -1,5 +1,6 @@
 package com.renu.Syllabus_and_Result_Management.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,26 +15,26 @@ public class Faculty extends FacultyBaseEntity<Long>{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
-	@Column(name="f_name",nullable=false)
+	@Column(name="f_name")
 	private String f_name;
-	@Column(name="d_name",nullable=false)
+	@Column(name="d_name")
 	private String d_name;
-	@Column(name="level",nullable=false)
+	@Column(name="level")
 	private String level;
-	@Column(name="semester",nullable=false)
+	@Column(name="semester")
 	private String semester;
-	@Column(name="total_credit",nullable=false)
+	@Column(name="total_credit")
 	private String total_credit;
-	@OneToOne(mappedBy="faculty",fetch=FetchType.LAZY)
-	private Courses courses;
+	@OneToOne(mappedBy="faculty",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+   private Courses courses;
 	
 	public Faculty() {
 		
 	}
 
-	public Faculty(long id, String f_name, String d_name, String level, String semester, String total_credit) {
+	public Faculty( String f_name, String d_name, String level, String semester, String total_credit) {
 		super();
-		this.id = id;
+		
 		this.f_name = f_name;
 		this.d_name = d_name;
 		this.level = level;
@@ -89,6 +90,8 @@ public class Faculty extends FacultyBaseEntity<Long>{
 	public void setTotal_credit(String total_credit) {
 		this.total_credit = total_credit;
 	}
+
+	
 
 	public Courses getCourses() {
 		return courses;

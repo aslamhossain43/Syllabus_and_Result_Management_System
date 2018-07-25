@@ -37,9 +37,10 @@ public class Courses extends CoursesBaseEntity<Long> {
 	@Column(name="semester",nullable=false)
 	private String semester;
 	@OneToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="f_id",unique=true,nullable=false,referencedColumnName="id")
+	@JoinColumn(name="f_id")
 	private Faculty faculty;
-	@OneToMany(mappedBy="courses",cascade=CascadeType.ALL)	
+	
+	@OneToMany(mappedBy="courses",cascade=CascadeType.ALL,fetch=FetchType.EAGER)	
 	private List<Results> results=new ArrayList<>();
 	@Override
 	public Long getId() {
@@ -51,10 +52,10 @@ public class Courses extends CoursesBaseEntity<Long> {
 		
 	}
 
-	public Courses(Long id, String c_title, String c_code, String c_credit, String c_type, String f_name, String d_name,
-			String level, String semester, Faculty faculty, List<Results> results) {
+	public Courses( String c_title, String c_code, String c_credit, String c_type, String f_name, String d_name,
+			String level, String semester) {
 		super();
-		this.id = id;
+		
 		this.c_title = c_title;
 		this.c_code = c_code;
 		this.c_credit = c_credit;
@@ -63,8 +64,8 @@ public class Courses extends CoursesBaseEntity<Long> {
 		this.d_name = d_name;
 		this.level = level;
 		this.semester = semester;
-		this.faculty = faculty;
-		this.results = results;
+		
+		
 	}
 
 	public String getC_title() {
@@ -131,13 +132,7 @@ public class Courses extends CoursesBaseEntity<Long> {
 		this.semester = semester;
 	}
 
-	public Faculty getFaculty() {
-		return faculty;
-	}
-
-	public void setFaculty(Faculty faculty) {
-		this.faculty = faculty;
-	}
+	
 
 	public List<Results> getResults() {
 		return results;
@@ -149,6 +144,19 @@ public class Courses extends CoursesBaseEntity<Long> {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	
+	
+	
+	
+	
+	public Faculty getFaculty() {
+		return faculty;
+	}
+
+	public void setFaculty(Faculty faculty) {
+		this.faculty = faculty;
 	}
 
 	@Override

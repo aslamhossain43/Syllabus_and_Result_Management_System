@@ -1,10 +1,14 @@
 package com.renu.Syllabus_and_Result_Management.controller;
 
+import java.util.Iterator;
+
 import javax.validation.Valid;
 
+import org.omg.CORBA.PUBLIC_MEMBER;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,9 +19,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.renu.Syllabus_and_Result_Management.dto.FacultyDTO;
 import com.renu.Syllabus_and_Result_Management.dto.ResultsDTO;
+import com.renu.Syllabus_and_Result_Management.entity.Courses;
 import com.renu.Syllabus_and_Result_Management.entity.D;
 import com.renu.Syllabus_and_Result_Management.entity.F;
 import com.renu.Syllabus_and_Result_Management.entity.Faculty;
+import com.renu.Syllabus_and_Result_Management.entity.Results;
+import com.renu.Syllabus_and_Result_Management.repository.CoursesRepository;
 import com.renu.Syllabus_and_Result_Management.repository.DRepository;
 import com.renu.Syllabus_and_Result_Management.repository.FRepository;
 import com.renu.Syllabus_and_Result_Management.repository.FacultyRepository;
@@ -33,6 +40,8 @@ public class ManageController {
 	private DRepository drepository;
 	@Autowired
 	private FacultyRepository facultyRepository;
+	@Autowired
+	private CoursesRepository coursesRepository;
 	
 	
 	
@@ -120,7 +129,90 @@ public class ManageController {
 	}
 	
 	
+	@RequestMapping(value = "/showCourses", method = RequestMethod.GET)
+	public String showCourses(Model model) {
+		LOGGER.debug("Rendering from Manage Courses ");
+		model.addAttribute("ls", facultyRepository.findAll());
+      
+		return "manage-courses";
+
+	}
 	
+	
+	@RequestMapping(value = "/createCourses", method = RequestMethod.POST)
+	public String manageCourses(@Valid  ResultsDTO resultsDTO,
+			BindingResult bindingResult, WebRequest webRequest, RedirectAttributes redirectAttributes, Model model) {
+		LOGGER.debug("Rendering from Manage Courses");
+	   
+		Courses courses=new Courses();	
+	
+	
+		courses.setC_title(webRequest.getParameter("c_title"));
+        courses.setC_code(webRequest.getParameter("c_code"));
+		courses.setC_credit(webRequest.getParameter("c_credit"));
+		courses.setC_type(webRequest.getParameter("c_type"));
+		courses.setF_name(webRequest.getParameter("f_name"));
+		courses.setD_name(webRequest.getParameter("d_name"));
+        courses.setLevel(webRequest.getParameter("level"));		
+		courses.setSemester(webRequest.getParameter("semester"));
+	
+        coursesRepository.save(courses);
+	/*	for (Object[] code:coursesRepository.findByC_code()) {
+			if (!courses.getC_code().equals(code)) {
+				coursesRepository.save(courses);
+			}
+		}*/
+		
+		
+		if (bindingResult.hasErrors()) {
+			model.addAttribute("message", "Operation has not successeded !!!");
+			return "redirect:/showCourses";
+		}
+		model.addAttribute("message","Courses has created !!!");
+		    return "redirect:/showCourses";
+
+	}
+	
+	
+	
+	@RequestMapping(value = "/showenter-result", method = RequestMethod.GET)
+	public String showEnterResult(Model model) {
+		LOGGER.debug("Rendering from Manage enter result ");
+		model.addAttribute("hmm", coursesRepository.findAll());
+		//for (int i=1;i<=coursesRepository.findAll().size();i++) {
+	//		model.addAttribute("course", "course"+i);
+			
+	//	}
+      
+		return "enter-result";
+
+	}
+	
+	
+	
+	
+	
+	@RequestMapping(value = "/createResult", method = RequestMethod.POST)
+	public String manageResult(@Valid  ResultsDTO resultsDTO,
+			BindingResult bindingResult, WebRequest webRequest, RedirectAttributes redirectAttributes, Model model) {
+		LOGGER.debug("Rendering from Manage enter result");
+	   
+		Results results=new Results();
+		//for (int i = 1; i <= coursesRepository.findAll().size(); i++) {
+			
+		//}
+		
+	
+		
+		
+		if (bindingResult.hasErrors()) {
+			model.addAttribute("message", "Operation has not successeded !!!");
+			return "redirect:/showenter-result";
+		}
+		model.addAttribute("message","Result has created !!!");
+		    return "redirect:/showenter-result";
+
+	}
 	
 	
 	

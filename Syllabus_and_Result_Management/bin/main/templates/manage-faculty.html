@@ -35,7 +35,7 @@
 <div class="form-group">
 <label for="faculty" class="col-sm-2 control-label">Faculty : </label>
 <div class="col-sm-6">
-<input type="text" class="form-control" id="faculty" name="faculty" placeholder=" Enter Faculty Name">
+<input type="text" class="form-control" id="faculty" name="faculty" placeholder=" Enter Faculty Name" autocomplete="off">
 </div>
 <p class="text-danger" th:text="${param.error[0]}" th:unless="${param.error==null}">
 Invalid Faculty
